@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>個人學習歷程 - LMS</title>
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    .wrapper {
+      display: flex;
+      min-height: 100vh;
+    }
+    .sidebar {
+      width: 200px;
+      background: #fff;
+      border-right: 1px solid #e0e0e0;
+      padding: 1rem;
+    }
+    .sidebar h2 {
+      font-size: 1.2rem;
+      margin-bottom: 1rem;
+    }
+    .sidebar a {
+      display: block;
+      padding: 0.5rem 0;
+      color: #333;
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    .sidebar a:hover {
+      color: #0066ff;
+    }
+    .main {
+      flex: 1;
+      background: #f5f7fa;
+      padding: 2rem;
+    }
+    .header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 2rem;
+    }
+    .header h1 {
+      margin: 0;
+      font-size: 1.5rem;
+    }
+    .section {
+      margin-bottom: 1.5rem;
+    }
+    .card {
+      background: #fff;
+      padding: 1rem;
+      border-radius: 8px;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+    }
+    .card h2 {
+      margin-top: 0;
+      font-size: 1.1rem;
+      margin-bottom: 0.5rem;
+    }
+    .info-list li {
+      margin-bottom: 0.3rem;
+    }
+    .subnav {
+  display: flex;
+  border-bottom: 1px solid #e0e0e0;
+  margin-bottom: 1rem;
+}
+.subnav button {
+  background: none;
+  border: none;
+  padding: 0.5rem 1rem;
+  font-size: 1rem;
+  cursor: pointer;
+  color: #555;
+}
+.subnav button.active {
+  border-bottom: 2px solid #0066ff;
+  color: #0066ff;
+}
+
+/* 面板显示/隐藏 */
+#badges-panel,
+#passport-panel {
+  display: none;
+}
+#badges-panel.active,
+#passport-panel.active {
+  display: block;
+}
+
+/* 徽章 Grid */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+  gap: 1rem;
+}
+.badge-item {
+  text-align: center;
+  cursor: pointer;
+}
+.badge-item img {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+/* 护照列表 */
+.passport-item {
+  margin-bottom: 1.5rem;
+}
+.passport-item h3 {
+  margin-bottom: 0.5rem;
+}
+.levels {
+  display: flex;
+  gap: 0.5rem;
+}
+.levels img {
+  width: 50px;
+  height: 50px;
+  cursor: pointer;
+  object-fit: cover;
+}
+
+/* 通用 Modal */
+.modal {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: rgba(0,0,0,0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.modal.hidden {
+  display: none;
+}
+.modal-content {
+  background: #fff;
+  padding: 1rem;
+  border-radius: 8px;
+  position: relative;
+  max-width: 90%;
+  max-height: 90%;
+  overflow: auto;
+}
+.modal-close {
+  position: absolute;
+  top: 8px; right: 8px;
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+.modal-content img {
+  max-width: 100%;
+  margin-bottom: 1rem;
+}
+#modal-qrcode {
+  width: 100px;
+  margin: 1rem 0;
+}
+#download-qrcode {
+  display: inline-block;
+  padding: 0.4rem 0.8rem;
+  background: #0066ff;
+  color: #fff;
+  border-radius: 4px;
+  text-decoration: none;
+}
+.levels img:not([data-level]) {
+  filter: grayscale(100%);
+  opacity: 0.4;
+}
+  </style>
+</head>
+<body>
+  <div class="wrapper">
+    <!-- 側邊導航 -->
+    <nav class="sidebar">
+      <h2>導航</h2>
+      <a href="home.html">首頁</a>
+      <a href="profile.html">個人資料</a>
+      <a href="progress.html">學習進度</a>
+      <a href="uticoin.html">UTI 幣明細</a>
+      <a href="portfolio.html" class="active">個人學習歷程</a>
+      <a href="index.html">登出</a>
+    </nav>
+
+    <!-- 主要內容區 -->
+    <div class="main">
+      <div class="header">
+        <h1>個人學習歷程</h1>
+      </div>
+
+      <!-- Tab 導航 -->
+      <nav class="subnav">
+        <button id="tab-badges" class="active">研習勛章</button>
+        <button id="tab-passport">學習增能護照</button>
+      </nav>
+
+      <!-- 研習勛章面板 -->
+      <section id="badges-panel" class="active">
+        <div class="grid">
+          <!-- 勛章 1 -->
+          <div class="badge-item"
+               data-img="img/badge1-sm.jpg"
+               data-qrcode="img/qrcodeex.png"
+               data-course="课程 X"
+               data-date="2024.05.01">
+            <img src="img/badge1-sm.jpg" alt="課程 X 勛章">
+            <p>課程 X</p>
+          </div>
+          <!-- 勋章 2 -->
+          <div class="badge-item"
+               data-img="img/badge1-sm.jpg"
+               data-qrcode="img/qrcodeex.png"
+               data-course="课程 Y"
+               data-date="2024.06.15">
+            <img src="img/badge1-sm.jpg" alt="课程 Y 勋章">
+            <p>課程 Y</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- 學習增能護照面板 -->
+      <section id="passport-panel">
+        <!-- 課程 A -->
+        <div class="passport-item">
+          <h3>課程 A</h3>
+          <div class="levels">
+            <img src="img/badge1-sm.jpg" alt="T0 初次參與"
+                 data-level="T0"
+                 data-course="課程 A"
+                 data-date="2024.01.10"
+                 data-img="img/badge1-sm.jpg"
+                 data-qrcode="img/qrcodeex.png">
+            <img src="img/badge1-sm.jpg" alt="T1 觀察員"
+                 data-level="T1"
+                 data-course="课程 A"
+                 data-date="2024.02.20"
+                 data-img="img/badge1-sm.jpg"
+                 data-qrcode="img/qrcodeex.png">
+            <img src="img/badge1-sm.jpg" alt="T2 實習協作">
+            <img src="img/badge1-sm.jpg" alt="T3 協作">
+            <img src="img/badge1-sm.jpg" alt="T4 助理講師">
+            <img src="img/badge1-sm.jpg" alt="T5 講師">
+          </div>
+        </div>
+
+        <!-- 課程 B -->
+        <div class="passport-item">
+          <h3>課程 B</h3>
+          <div class="levels">
+            <img src="img/badge1-sm.jpg" alt="T0 初次參與"
+                 data-level="T0"
+                 data-course="課程 B"
+                 data-date="2024.03.05"
+                 data-img="img/badge1-sm.jpg"
+                 data-qrcode="img/qrcodeex.png">
+            <img src="img/badge1-sm.jpg" alt="T1 觀察員"
+                 data-level="T1"
+                 data-course="課程 B"
+                 data-date="2024.04.10"
+                 data-img="img/badge1-sm.jpg"
+                 data-qrcode="img/qrcodeex.png">
+            <img src="img/badge1-sm.jpg" alt="T2 實習協作"
+                 data-level="T2"
+                 data-course="課程 B"
+                 data-date="2024.05.20"
+                 data-img="img/badge1-sm.jpg"
+                 data-qrcode="img/qrcodeex.png">
+            <img src="img/badge1-sm.jpg" alt="T3 協作">
+            <img src="img/badge1-sm.jpg" alt="T4 助理講師">
+            <img src="img/badge1-sm.jpg" alt="T5 講師">
+          </div>
+        </div>
+      </section>
+    </div>
+  </div>
+
+  <!-- 通用 Modal -->
+  <div id="cert-modal" class="modal hidden">
+    <div class="modal-content">
+      <button class="modal-close">&times;</button>
+      <img id="modal-img" src="" alt="大圖">
+      <h4 id="modal-course"></h4>
+      <p id="modal-info"></p>
+      <img id="modal-qrcode" src="" alt="QR Code">
+      <a id="download-qrcode" href="#" download>另存二維碼</a>
+    </div>
+  </div>
+
+  <!-- 脚本：Tab 切换 & Modal -->
+  <script>
+    // —— Tab 切换 —— 
+    document.getElementById('tab-badges')
+      .addEventListener('click', () => {
+        document.getElementById('tab-badges').classList.add('active');
+        document.getElementById('tab-passport').classList.remove('active');
+        document.getElementById('badges-panel').classList.add('active');
+        document.getElementById('passport-panel').classList.remove('active');
+    });
+    document.getElementById('tab-passport')
+      .addEventListener('click', () => {
+        document.getElementById('tab-passport').classList.add('active');
+        document.getElementById('tab-badges').classList.remove('active');
+        document.getElementById('passport-panel').classList.add('active');
+        document.getElementById('badges-panel').classList.remove('active');
+    });
+
+    // —— Modal 彈窗 —— 
+    const modal      = document.getElementById('cert-modal');
+    const modalImg   = document.getElementById('modal-img');
+    const modalCourse= document.getElementById('modal-course');
+    const modalInfo  = document.getElementById('modal-info');
+    const modalQr    = document.getElementById('modal-qrcode');
+    const downloadQr = document.getElementById('download-qrcode');
+
+    // 綁定所有勛章 & 已解鎖級別的點擊
+    document.querySelectorAll('.badge-item, .levels img[data-level]')
+      .forEach(el => {
+        el.addEventListener('click', () => {
+          const img    = el.getAttribute('data-img');
+          const qr     = el.getAttribute('data-qrcode');
+          const course = el.getAttribute('data-course');
+          const date   = el.getAttribute('data-date');
+          const level  = el.getAttribute('data-level') || '';
+          modalImg.src    = img;
+          modalCourse.textContent = course + (level ? ' - ' + level : '');
+          modalInfo.textContent   = date;
+          modalQr.src     = qr;
+          downloadQr.href = qr;
+          modal.classList.remove('hidden');
+        });
+    });
+
+    // 關閉 Modal
+    document.querySelector('.modal-close')
+      .addEventListener('click', () => {
+        modal.classList.add('hidden');
+    });
+    modal.addEventListener('click', e => {
+      if (e.target === modal) {
+        modal.classList.add('hidden');
+      }
+    });
+  </script>
+</body>
+</html>
