@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Dashboard - LMS </title>
+  <link rel="stylesheet" href="styles.css" />
+  <style>
+    .wrapper {
+      display: flex;
+      min-height: 100vh;
+    }
+    .sidebar {
+      width: 200px;
+      background: #fff;
+      border-right: 1px solid #e0e0e0;
+      padding: 1rem;
+    }
+    .sidebar h2 {
+      font-size: 1.2rem;
+      margin-bottom: 1rem;
+    }
+    .sidebar a {
+      display: block;
+      padding: 0.5rem 0;
+      color: #333;
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    .sidebar a:hover {
+      color: #0066ff;
+    }
+    .main {
+      flex: 1;
+      background: #f5f7fa;
+      padding: 2rem;
+    }
+    .header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 2rem;
+    }
+    .header h1 {
+      margin: 0;
+      font-size: 1.5rem;
+    }
+    .section {
+      margin-bottom: 1.5rem;
+    }
+    .card {
+      background: #fff;
+      padding: 1rem;
+      border-radius: 8px;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+    }
+    .card h2 {
+      margin-top: 0;
+      font-size: 1.1rem;
+      margin-bottom: 0.5rem;
+    }
+    .info-list li {
+      margin-bottom: 0.3rem;
+    }
+  </style>
+</head>
+<body>
+  <div class="wrapper">
+    <!-- 左側導航 -->
+    <nav class="sidebar">
+      <h2>導航</h2>
+      <a href="home.html">首頁</a>
+      <a href="profile.html">個人資料</a>
+      <a href="progress.html">學習進度</a>
+      <a href="uticoin.html">UTI幣明細</a>
+      <a href="index.html">登出</a>
+    </nav>
+
+    <!-- 右側主區域 -->
+    <div class="main">
+      <!-- 頂部歡迎 -->
+      <div class="header">
+        <h1>儀表板</h1>
+        <div>歡迎回來，<strong>Username</strong>！</div>
+      </div>
+
+      <!-- 公告栏 -->
+      <div class="section card">
+        <h2>公告欄</h2>
+        <p>暫無公告</p>
+      </div>
+
+      <!-- 個人資訊 -->
+      <div class="section card">
+        <h2>個人資訊</h2>
+        <ul class="info-list">
+          <li>中文姓名：張三</li>
+          <li>英文姓名：ChangSan</li>
+          <li>身份：教師</li>
+          <li>累積 UTI 幣：1,200</li>
+        </ul>
+      </div>
+
+      <!-- 学习进度概览 -->
+      <div class="section card">
+        <h2>學習進度概覽</h2>
+        <p>生涯規劃 B — 
+          <progress value="40" max="100"></progress> 40%
+        </p>
+        <p>問題導向學習 A — 
+          <progress value="60" max="100"></progress> 60%
+        </p>
+      </div>
+
+      <!-- UTI 币摘要 -->
+      <div class="section card">
+        <h2>UTI 币摘要</h2>
+        <p>當前餘額：1,200 UTI 幣</p>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
