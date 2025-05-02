@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>報名確認 - LMS</title>
+  <style>
+    /* Reset & 全局 */
+    * { margin:0; padding:0; box-sizing:border-box; }
+    body { font-family:sans-serif; background:#f5f7fa; }
+    .wrapper { display:flex; min-height:100vh; }
+
+    /* 側邊導航 */
+    .sidebar {
+      width:200px; background:#fff;
+      border-right:1px solid #e0e0e0; padding:1rem;
+    }
+    .sidebar a { display:block; padding:.5rem 0; color:#333; text-decoration:none; }
+    .sidebar a.active { color:#0066ff; font-weight:bold; }
+
+    /* 主區域 */
+    .main { flex:1; padding:2rem; }
+    .header h1 { font-size:1.5rem; margin-bottom:1.5rem; }
+
+    /* 表單容器 */
+    .form-container {
+      background:#fff; padding:2rem;
+      border-radius:8px; box-shadow:0 4px 12px rgba(0,0,0,0.05);
+      max-width:500px; margin:0 auto;
+    }
+    .form-group { margin-bottom:1rem; }
+    label { display:block; margin-bottom:.3rem; font-size:.9rem; }
+    input, select {
+      width:100%; padding:.6rem; border:1px solid #ccc;
+      border-radius:4px; font-size:1rem;
+    }
+    .checkbox-group {
+      display:flex; align-items:center; gap:.5rem;
+      margin-bottom:1rem;
+    }
+    .actions button {
+      width:100%; padding:.7rem; border:none;
+      border-radius:4px; background:#0066ff;
+      color:#fff; font-size:1rem; cursor:pointer;
+      transition:background .2s;
+    }
+    .actions button:hover { background:#0052cc; }
+  </style>
+</head>
+<body>
+  <div class="wrapper">
+    
+
+    <div class="main">
+      <div class="header"><h1>報名確認</h1></div>
+
+      <div class="form-container">
+        <form action="apply-success.html" method="get">
+          <div class="form-group">
+            <label>中文姓名</label>
+            <input type="text" value="張三" readonly>
+          </div>
+          <div class="form-group">
+            <label>英文姓名</label>
+            <input type="text" value="Chang San" readonly>
+          </div>
+          <div class="form-group">
+            <label>電子郵件</label>
+            <input type="email" value="changsan@gmail.com" readonly>
+          </div>
+          <div class="form-group">
+            <label>身份</label>
+            <input type="text" value="一般教師" readonly>
+          </div>
+          <div class="form-group">
+            <label>報名身份</label>
+            <input type="text" value="基礎學員" readonly>
+          </div>
+          <div class="checkbox-group">
+            <input type="checkbox" id="upgrade" name="upgrade">
+            <label for="upgrade">是否升級身份認證</label>
+          </div>
+          <div class="actions">
+            <button type="submit">確認報名</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

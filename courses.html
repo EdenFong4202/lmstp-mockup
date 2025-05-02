@@ -1,152 +1,131 @@
-
 <!DOCTYPE html>
 <html lang="zh-Hant">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
   <title>課程管理 - LMS</title>
   <style>
     /* Reset & 全局 */
-    * { margin: 0; padding: 0; box-sizing: border-box; }
+    * { margin:0; padding:0; box-sizing:border-box; }
     body { font-family: sans-serif; background: #f5f7fa; }
-    .wrapper { display: flex; min-height: 100vh; }
+    .wrapper { display:flex; min-height:100vh; }
 
-    /* 側邊導覽 */
+    /* 側邊導航 */
     .sidebar {
-      width: 200px;
-      background: #fff;
-      border-right: 1px solid #e0e0e0;
-      padding: 1rem;
+      width:200px; background:#fff; border-right:1px solid #e0e0e0; padding:1rem;
     }
-    .sidebar h2 {
-      font-size: 1.2rem;
-      margin-bottom: 1rem;
-    }
+    .sidebar h2 { font-size:1.2rem; margin-bottom:1rem; }
     .sidebar a {
-      display: block;
-      padding: 0.5rem 0;
-      color: #333;
-      text-decoration: none;
-      transition: color .2s;
+      display:block; padding:.5rem 0;
+      color:#333; text-decoration:none; transition:color .2s;
     }
     .sidebar a:hover,
-    .sidebar a.active {
-      color: #0066ff;
-      font-weight: bold;
+    .sidebar a.active { color:#0066ff; font-weight:bold; }
+
+    /* 主要領域 */
+    .main { flex:1; padding:2rem; }
+    .header h1 { font-size:1.5rem; margin-bottom:1.5rem; }
+    .section-title {
+      font-size:1.2rem; margin:1.5rem 0 .5rem; color:#333;
     }
 
-    /* main */
-    .main {
-      flex: 1;
-      padding: 2rem;
-    }
-    .header h1 {
-      font-size: 1.5rem;
-      margin-bottom: 1.5rem;
-    }
-
-    /* 課程列表 Grid */
+    /* 課程卡片 */
     .courses-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-      gap: 1.5rem;
+      display:grid;
+      grid-template-columns:repeat(auto-fill, minmax(250px,1fr));
+      gap:1.5rem;
     }
     .course-card {
-      background: #fff;
-      padding: 1rem;
-      border-radius: 8px;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.05);
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
+      background:#fff; padding:1rem; border-radius:8px;
+      box-shadow:0 4px 12px rgba(0,0,0,0.05);
+      display:flex; flex-direction:column; justify-content:space-between;
     }
-    .course-card h2 {
-      font-size: 1.1rem;
-      margin-bottom: 0.5rem;
-    }
+    .course-card h2 { font-size:1.1rem; margin-bottom:.5rem; }
     .course-card p {
-      font-size: 0.9rem;
-      margin-bottom: 0.75rem;
-      color: #555;
-      flex-grow: 1;
+      font-size:.9rem; margin-bottom:.75rem; color:#555; flex-grow:1;
     }
-    .course-info {
-      font-size: 0.85rem;
-      margin-bottom: 1rem;
-      color: #666;
-    }
-    .course-info span {
-      display: block;
-      margin-bottom: 0.25rem;
-    }
+    .course-info { font-size:.85rem; margin-bottom:1rem; color:#666; }
+    .course-info span { display:block; margin-bottom:.25rem; }
+
+    /* 報名按鈕 & 狀態 */
     .course-card button {
-      align-self: stretch;
-      padding: 0.6rem;
-      border: none;
-      border-radius: 4px;
-      background: #0066ff;
-      color: #fff;
-      font-size: 1rem;
-      cursor: pointer;
-      transition: background .2s;
+      padding:.6rem; border:none; border-radius:4px;
+      background:#0066ff; color:#fff; font-size:1rem;
+      cursor:pointer; transition:background .2s;
     }
-    .course-card button:hover {
-      background: #0052cc;
+    .course-card button:hover { background:#0052cc; }
+    .status-chip {
+      display:inline-block; padding:.4rem .8rem;
+      background:#ffe58f; color:#614700; border-radius:12px;
+      font-size:.85rem; text-align:center;
     }
   </style>
 </head>
 <body>
   <div class="wrapper">
-    <!-- sidebar -->
+    <!-- 側邊導航 -->
     <nav class="sidebar">
-      <h2>导航</h2>
+      <h2>導航</h2>
       <a href="home.html">首頁</a>
       <a href="profile.html">個人資料</a>
       <a href="courses.html" class="active">課程管理</a>
       <a href="progress.html">學習進度</a>
-      <a href="uticoin.html">UTI 幣明細</a>
       <a href="portfolio.html">個人學習歷程</a>
+      <a href="uticoin.html">UTI幣明細</a>
       <a href="index.html">登出</a>
     </nav>
 
-    <!-- 主区域 -->
+    <!-- 主要區域 -->
     <div class="main">
       <div class="header">
         <h1>課程管理</h1>
       </div>
 
+      <!-- 可報名課程 -->
+      <div class="section-title">可報名課程</div>
       <div class="courses-grid">
-        <!-- course 1 -->
+        <!-- 課程 1 -->
         <div class="course-card">
-          <h2>PBL教學設計增能</h2>
-          <p>透過項目式學習，提升教師在課程設計與教學協作方面的實務能力</p>
+          <h2>PBL 教學設計增能</h2>
+          <p>透過項目式學習（PBL），提升教師在課程設計與教學協作方面的實務能力。</p>
           <div class="course-info">
-            <span>開課時間：2024-07-01</span>
-            <span>報名截止：2024-06-25</span>
+            <span>開課時間：2025-07-01</span>
+            <span>報名截止：2025-06-25</span>
           </div>
-          <button type="button">報名</button>
+          <button onclick="location.href='apply-confirm.html'">報名</button>
         </div>
-
-        <!-- course 2 -->
+        <!-- 課程 2 -->
         <div class="course-card">
           <h2>教育心理學實務研習</h2>
-          <p>深入理解學生學習動機與行為，應用心理學原理改善課堂管理與學習成效</p>
+          <p>深入理解學生學習動機與行為，應用心理學原理改善課堂管理與學習成效。</p>
           <div class="course-info">
-            <span>開課時間：2024-08-05</span>
-            <span>報名截止：2224-07-30</span>
+            <span>開課時間：2025-08-05</span>
+            <span>報名截止：2025-07-30</span>
           </div>
-          <button type="button">報名</button>
+          <button onclick="location.href='apply-confirm.html'">報名</button>
         </div>
-
-        <!-- course 3 -->
+        <!-- 課程 3 -->
         <div class="course-card">
           <h2>教育技術整合工作坊</h2>
           <p>探索線上與實體教學工具的融合，實踐翻轉課堂與混合式學習設計。</p>
           <div class="course-info">
-            <span>開課時間：2024-09-10</span>
-            <span>報名截止：2024-09-01</span>
+            <span>開課時間：2025-09-10</span>
+            <span>報名截止：2025-09-01</span>
           </div>
-          <button type="button">報名</button>
+          <button onclick="location.href='apply-confirm.html'">報名</button>
+        </div>
+      </div>
+
+      <!-- 審核中課程 -->
+      <div class="section-title">審核中課程</div>
+      <div class="courses-grid">
+        <div class="course-card">
+          <h2>基礎學員 – PBL 教學設計增能</h2>
+          <p>您已提交報名，正在等待後台審核。</p>
+          <div class="course-info">
+            <span>申請時間：2025-06-15</span>
+          </div>
+          <div class="status-chip">審核中…</div>
         </div>
       </div>
     </div>

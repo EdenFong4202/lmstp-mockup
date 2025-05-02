@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>提交結業報告</title>
+  <style>
+    * { margin:0; padding:0; box-sizing:border-box; }
+    body {
+      font-family: sans-serif;
+      background: #f5f7fa;
+      padding: 2rem;
+    }
+    .container {
+      background: #fff;
+      max-width: 600px;
+      margin: 0 auto;
+      padding: 2rem;
+      border-radius: 8px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+    }
+    h1 {
+      font-size: 1.3rem;
+      margin-bottom: 1.5rem;
+      text-align: center;
+    }
+    .form-group {
+      margin-bottom: 1.2rem;
+    }
+    .form-group label {
+      display: block;
+      margin-bottom: 0.5rem;
+      font-size: 0.9rem;
+      color: #333;
+    }
+    .file-upload {
+      border: 2px dashed #ccc;
+      border-radius: 4px;
+      padding: 1.5rem;
+      text-align: center;
+      color: #666;
+      cursor: pointer;
+      position: relative;
+    }
+    .file-upload:hover {
+      background: #f9f9f9;
+    }
+    .file-upload input[type="file"] {
+      position: absolute;
+      top:0; left:0; width:100%; height:100%;
+      opacity: 0;
+      cursor: pointer;
+    }
+    textarea {
+      width: 100%;
+      height: 120px;
+      padding: 0.6rem;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      font-size: 1rem;
+      resize: vertical;
+    }
+    .actions {
+      text-align: center;
+      margin-top: 1.5rem;
+    }
+    .actions button {
+      padding: 0.7rem 1.5rem;
+      border: none;
+      border-radius: 4px;
+      background: #0066ff;
+      color: #fff;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: background .2s;
+    }
+    .actions button:hover {
+      background: #0052cc;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>提交結業報告</h1>
+    <div class="form-group">
+      <label for="fileInput2">上傳報告文件</label>
+      <div class="file-upload">
+        點擊或拖曳文件到此上傳
+        <input type="file" id="fileInput2" />
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="textInput">或黏貼連結</label>
+      <textarea id="textInput" placeholder="可黏貼Google Site連結或填寫說明..."></textarea>
+    </div>
+    <div class="actions">
+      <button id="submitBtn2">提交報告</button>
+    </div>
+  </div>
+
+  <script>
+    document.getElementById('submitBtn2').addEventListener('click', () => {
+      if (confirm('是否確認提交結業報告？')) {
+        // 跳回 detail-60.html
+        location.href = 'detail-60.html';
+      }
+    });
+  </script>
+</body>
+</html>

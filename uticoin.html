@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>個人資料 - LMS </title>
+  <title>UTI 幣明細 - LMS</title>
   <link rel="stylesheet" href="styles.css" />
   <style>
     /* 全局布局 */
@@ -88,72 +88,78 @@
     .actions button:hover {
       background: #0052cc;
     }
+    /* 本页特有：表格样式 */
+    .card-table {
+      background: #fff;
+      padding: 1rem;
+      border-radius: 8px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+      margin-top: 1rem;
+    }
+    .card-table table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+    .card-table th,
+    .card-table td {
+      border: 1px solid #ddd;
+      padding: 0.75rem;
+      text-align: left;
+    }
+    .card-table th {
+      background: #f0f0f0;
+      font-weight: 600;
+    }
   </style>
 </head>
 <body>
   <div class="wrapper">
-    <!-- 側邊導航 -->
+    <!-- 侧边导航 -->
     <nav class="sidebar">
       <h2>導航</h2>
       <a href="home.html">首頁</a>
-      <a href="profile.html" class="active">個人資料</a>
+      <a href="profile.html">個人資料</a>
       <a href="courses.html">課程管理</a>
       <a href="progress.html">學習進度</a>
-      <a href="uticoin.html">UTI 幣明細</a>
-      <a href="portfolio.html">個人學習曆程</a>
+      <a href="portfolio.html">個人學習歷程</a>
+      <a href="uticoin.html" class="active">UTI幣明細</a>
       <a href="index.html">登出</a>
     </nav>
 
-    <!-- 主要內容區 -->
+    <!-- 主内容区 -->
     <div class="main">
       <div class="header">
-        <h1>個人資料</h1>
+        <h1>UTI 幣獲得明細</h1>
       </div>
 
-      <div class="profile-container">
-        <form action="confirm-password.html" method="get">
-          <div class="form-group">
-            <label for="account">賬號</label>
-            <input type="text" id="account" name="account"
-                   value="r123456" readonly>
-          </div>
-          <div class="form-group">
-            <label for="fullname-zh">中文姓名</label>
-            <input type="text" id="fullname-zh" name="fullname-zh"
-                   value="張三" required>
-          </div>
-          <div class="form-group">
-            <label for="fullname-en">英文姓名</label>
-            <input type="text" id="fullname-en" name="fullname-en"
-                   value="Chang San" required>
-          </div>
-          <div class="form-group">
-            <label for="email">電子郵件</label>
-            <input type="email" id="email" name="email"
-                   value="example@domain.com" required>
-          </div>
-          <div class="form-group">
-            <label for="phone">手機號碼</label>
-            <input type="tel" id="phone" name="phone"
-                   value="0912345678" required>
-          </div>
-          <div class="form-group">
-            <label for="role">身份</label>
-            <select id="role" name="role" required>
-              <option value="">一般教師</option>
-              <option selected>一般教師</option>
-              <option>社群領導人</option>
-              <option>教育行政人員</option>
-              <option>輔導團</option>
-              <option>家長</option>
-              <option>學生</option>
-            </select>
-          </div>
-
-          <div class="actions">
-            <button type="submit">保存修改</button>
-          </div>
-        </form>
+      <div class="card-table">
+        <table>
+          <thead>
+            <tr>
+              <th>日期</th>
+              <th>來源 / 說明</th>
+              <th>獲得 UTI 幣</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>2024-06-01</td>
+              <td>註冊獎勵</td>
+              <td>+200</td>
+            </tr>
+            <tr>
+              <td>2024-06-05</td>
+              <td>完成「课程 - Google研習」</td>
+              <td>+300</td>
+            </tr>
+            <tr>
+              <td>2024-06-10</td>
+              <td>邀請好友 Bob 註冊</td>
+              <td>+150</td>
+            </tr>
+            <!-- 更多記錄… -->
+          </tbody>
+        </table>
       </div>
     </div>
   </div>

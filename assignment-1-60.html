@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>課中作業1 — 已完成</title>
+  <style>
+    /* Reset & 全局 */
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: "Segoe UI", sans-serif;
+      background: #f5f7fa;
+      color: #333;
+      padding: 2rem;
+    }
+    .container {
+      max-width: 800px;
+      margin: 0 auto;
+    }
+    .card {
+      background: #fff;
+      border-radius: 8px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      padding: 1.5rem;
+      margin-bottom: 1.5rem;
+    }
+    h1 {
+      font-size: 1.5rem;
+      margin-bottom: 0.75rem;
+    }
+    .meta {
+      display: flex;
+      align-items: baseline;
+      gap: 1rem;
+      margin-bottom: 1.5rem;
+    }
+    .score {
+      font-size: 1.25rem;
+      font-weight: bold;
+    }
+    .status {
+      padding: 0.2rem 0.6rem;
+      background: #e6f4ea;
+      color: #196127;
+      border-radius: 12px;
+      font-size: 0.9rem;
+    }
+    .teacher-info {
+      color: #555;
+      font-size: 0.9rem;
+    }
+    .section {
+      margin-top: 1.5rem;
+    }
+    .section h2 {
+      font-size: 1.1rem;
+      margin-bottom: 0.5rem;
+    }
+    .section p {
+      line-height: 1.6;
+    }
+    .your-work {
+      background: #fafafa;
+      border: 1px solid #ddd;
+      border-radius: 4px;
+      padding: 1rem;
+      margin-top: 0.5rem;
+    }
+    .actions {
+      text-align:center;
+    }
+    .actions button {
+      padding:0.6rem 1.2rem;
+      border:none;
+      border-radius:4px;
+      background:#0066ff;
+      color:#fff;
+      font-size:1rem;
+      cursor:pointer;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <!-- 标题与得分 -->
+    <div class="card">
+      <h1>課中作業 1</h1>
+      <div class="meta">
+        <div class="score">評分：99 / 100</div>
+        <div class="status">通過</div>
+      </div>
+      <div class="teacher-info">
+        批改教師：Admin | Due 2025-04-09 17:00
+      </div>
+    </div>
+
+    <!-- 学生已提交作业 -->
+    <div class="card section">
+      <h2>Your work</h2>
+      <div class="your-work">
+        <p><strong>已提交文件：</strong>report.pdf</p>
+        <p><strong>附加連結：</strong>
+          <a href="https://docs.google.com/example" target="_blank">
+            https://docs.google.com/example
+          </a>
+        </p>
+      </div>
+    </div>
+
+    <!-- 教师评语 -->
+    <div class="card section">
+      <h2>教師評語</h2>
+      <p>十分完整</p>
+    </div>
+  </div>
+
+  <div class="actions">
+    <button onclick="location.href='detail-60.html'">
+      返回課程
+    </button>
+  </div>
+</body>
+</html>

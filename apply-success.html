@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>報名成功 - LMS</title>
+  <style>
+    * { margin:0; padding:0; box-sizing:border-box; }
+    body { font-family:sans-serif; background:#f5f7fa; }
+    .wrapper { display:flex; min-height:100vh; }
+    .sidebar {
+      width:200px; background:#fff;
+      border-right:1px solid #e0e0e0; padding:1rem;
+    }
+    .sidebar a.active { color:#0066ff; font-weight:bold; }
+    .main { flex:1; padding:2rem; }
+    .header h1 { font-size:1.5rem; margin-bottom:1.5rem; }
+
+    .result-container {
+      background:#fff; padding:2rem;
+      border-radius:8px; box-shadow:0 4px 12px rgba(0,0,0,0.05);
+      max-width:500px; margin:0 auto; text-align:center;
+    }
+    .result-container p {
+      font-size:1rem; margin-bottom:1.5rem;
+    }
+    .result-container button {
+      padding:.7rem 1.5rem; border:none; border-radius:4px;
+      background:#0066ff; color:#fff; font-size:1rem;
+      cursor:pointer; transition:background .2s;
+    }
+    .result-container button:hover { background:#0052cc; }
+  </style>
+</head>
+<body>
+  <div class="wrapper">
+    
+
+    <div class="main">
+      <div class="header"><h1>報名成功</h1></div>
+
+      <div class="result-container">
+        <p>您的報名已成功提交，正在等待後台審核。</p>
+        <button onclick="location.href='courses.html'">返回課程管理</button>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

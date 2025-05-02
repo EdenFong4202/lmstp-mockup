@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>學習進度 - LMS</title>
+  <style>
+    /* Reset & 全局 */
+    * { margin:0; padding:0; box-sizing:border-box; }
+    body { font-family: sans-serif; background: #f5f7fa; }
+    .wrapper { display: flex; min-height: 100vh; }
+
+    /* 侧边导航 */
+    .sidebar {
+      width: 200px;
+      background: #fff;
+      border-right: 1px solid #e0e0e0;
+      padding: 1rem;
+    }
+    .sidebar h2 {
+      font-size: 1.2rem; margin-bottom: 1rem;
+    }
+    .sidebar a {
+      display: block; padding: 0.5rem 0;
+      color: #333; text-decoration: none;
+      transition: color .2s;
+    }
+    .sidebar a:hover,
+    .sidebar a.active {
+      color: #0066ff; font-weight: bold;
+    }
+
+    /* 主内容 */
+    .main {
+      flex: 1; padding: 2rem;
+    }
+    .header h1 {
+      font-size: 1.5rem; margin-bottom: 1.5rem;
+    }
+
+    /* 课程卡片网格 */
+    .courses-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+      gap: 1.5rem;
+    }
+    .course-card {
+      background: #fff;
+      padding: 1rem;
+      border-radius: 8px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+      display: flex;
+      flex-direction: column;
+    }
+    .course-card h2 {
+      font-size: 1.1rem; margin-bottom: 0.5rem;
+    }
+    .course-info {
+      font-size: 0.9rem; color: #555;
+      margin-bottom: 1rem;
+    }
+    .course-info span {
+      display: block; margin-bottom: 0.3rem;
+    }
+
+    /* 进度条 */
+    .progress-bar {
+      background: #eee;
+      border-radius: 4px;
+      overflow: hidden;
+      height: 1rem;
+      margin-top: auto;
+    }
+    .progress {
+      height: 100%;
+      background: #0066ff;
+      color: #fff;
+      text-align: center;
+      font-size: 0.75rem;
+      line-height: 1rem;
+      white-space: nowrap;
+    }
+  </style>
+</head>
+<body>
+  <div class="wrapper">
+    <!-- 側邊導航 -->
+    <nav class="sidebar">
+      <h2>導航</h2>
+      <a href="home.html">首頁</a>
+      <a href="profile.html">個人資料</a>
+      <a href="courses.html">課程管理</a>
+      <a href="progress.html" class="active">學習進度</a>
+      <a href="portfolio.html">個人學習歷程</a>
+      <a href="uticoin.html">UTI幣明細</a>
+      <a href="index.html">登出</a>
+    </nav>
+
+    <!-- 主区域 -->
+    <div class="main">
+      <div class="header">
+        <h1>我的學習進度</h1>
+      </div>
+
+      <div class="courses-grid">
+        <!-- 未開課，进度0% -->
+        <div class="course-card">
+          <h2>Google education certification level 2</h2>
+          <div class="course-info">
+            <span>開課時間：2025-10-01</span>
+            <span>課程等級：—</span>
+          </div>
+          <div class="progress-bar">
+            <div class="progress" style="width:0%">0%</div>
+          </div>
+        </div>
+
+        <!-- 基礎學員 T0，進度40% -->
+        <div class="course-card" onclick="location.href='detail-40.html'" style="cursor:pointer;">
+          <h2>問題導向學習法</h2>
+          <div class="course-info">
+            <span>開課時間：2024-07-01</span>
+            <span>課程等級：基礎學員（T0）</span>
+          </div>
+          <div class="progress-bar">
+            <div class="progress" style="width:40%">40%</div>
+          </div>
+        </div>
+
+        <!-- 實習協作 T2，進度60% -->
+        <div class="course-card" onclick="location.href='detail-60.html'" style="cursor:pointer;">
+          <h2>專案導向學習法</h2>
+          <div class="course-info">
+            <span>開課時間：2025-06-01</span>
+            <span>課程等級：實習協作（T2）</span>
+          </div>
+          <div class="progress-bar">
+            <div class="progress" style="width:60%">60%</div>
+          </div>
+        </div>
+
+        <!-- 已完成，进度100% -->
+        <div class="course-card" onclick="location.href='detail-100.html'" style="cursor:pointer;">
+          <h2>Google education certification level 1</h2>
+          <div class="course-info">
+            <span>開課時間：2025-05-01</span>
+            <span>課程等級：基礎學員（T0）</span>
+          </div>
+          <div class="progress-bar">
+            <div class="progress" style="width:100%">100%</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
